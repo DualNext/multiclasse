@@ -121,13 +121,13 @@ if uploaded_file is not None:
             cores = ['gray', 'gray', '#800000']  # Vermelho para Tuberculose, Cinza para Brucelose e Controle
     
         # Exibir gráfico de pizza com as probabilidades
-        fig, ax = plt.subplots(figsize=(4, 4))
+        fig, ax = plt.subplots(figsize=(3, 3))
         ax.pie([probabilidade_bru, probabilidade_controle, probabilidade_tuberculose],
                labels=classes, autopct='%1.2f%%', startangle=90, colors=cores)
 
         # Ajustar o tamanho da fonte das porcentagens
         for text in ax.texts:
-            text.set_fontsize(10)  # Ajuste o valor para o tamanho desejado
+            text.set_fontsize(8)  # Ajuste o valor para o tamanho desejado
     
         ax.set_title('Probabilidades de Diagnóstico', fontsize = 10)
         st.pyplot(fig)
