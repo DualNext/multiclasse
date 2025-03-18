@@ -56,7 +56,7 @@ if uploaded_file is not None:
             plt.style.use("cyberpunk")
 
             # Criar sua linha
-            plt.plot(dados_coletados, lw=2, color='blue')  # Linha na cor verde
+            plt.plot(dados_coletados, lw=2, color='green')  # Linha na cor verde
 
             # Adicionar efeitos de brilho
             mplcyberpunk.add_glow_effects()
