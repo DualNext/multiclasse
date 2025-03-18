@@ -124,7 +124,12 @@ if uploaded_file is not None:
         fig, ax = plt.subplots(figsize=(4, 4))
         ax.pie([probabilidade_bru, probabilidade_controle, probabilidade_tuberculose],
                labels=classes, autopct='%1.2f%%', startangle=90, colors=cores)
-        ax.set_title('Probabilidades de Diagnóstico', fontsize=10)
+
+        # Ajustar o tamanho da fonte das porcentagens
+        for text in ax.texts:
+            text.set_fontsize(10)  # Ajuste o valor para o tamanho desejado
+    
+        ax.set_title('Probabilidades de Diagnóstico', fontsize = 10)
         st.pyplot(fig)
 
 else:
