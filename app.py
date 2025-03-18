@@ -127,9 +127,9 @@ if uploaded_file is not None:
 
         # Ajustar o tamanho da fonte das porcentagens
         for text in ax.texts:
-            text.set_fontsize(8)  # Ajuste o valor para o tamanho desejado
+            text.set_fontsize(3)  # Ajuste o valor para o tamanho desejado
     
-        ax.set_title('Probabilidades de Diagnóstico', fontsize = 10)
+        ax.set_title('Probabilidades de Diagnóstico', fontsize = 5)
         st.pyplot(fig)
 
 else:
