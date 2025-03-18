@@ -114,11 +114,11 @@ if uploaded_file is not None:
 
         # Definir cores dinamicamente
         if probabilidade_bru > max(probabilidade_controle, probabilidade_tuberculose):
-            cores = ['red', 'gray', 'gray']  # Vermelho para Brucelose, Cinza para Controle e Tuberculose
+            cores = ['#800000', 'gray', 'gray']  # Vermelho para Brucelose, Cinza para Controle e Tuberculose
         elif probabilidade_controle > max(probabilidade_bru, probabilidade_tuberculose):
             cores = ['gray', 'green', 'gray']  # Verde para Controle, Cinza para Brucelose e Tuberculose
         else:
-            cores = ['gray', 'gray', 'red']  # Vermelho para Tuberculose, Cinza para Brucelose e Controle
+            cores = ['gray', 'gray', '#800000']  # Vermelho para Tuberculose, Cinza para Brucelose e Controle
     
         # Exibir gráfico de pizza com as probabilidades
         fig, ax = plt.subplots(figsize=(3, 3))
