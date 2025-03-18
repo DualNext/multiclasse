@@ -121,7 +121,7 @@ if uploaded_file is not None:
             cores = ['gray', 'gray', '#800000']  # Vermelho para Tuberculose, Cinza para Brucelose e Controle
     
         # Exibir gráfico de pizza com as probabilidades
-        fig, ax = plt.subplots(figsize=(2.5, 2.5))
+        fig, ax = plt.subplots(figsize=(4, 4))
         ax.pie([probabilidade_bru, probabilidade_controle, probabilidade_tuberculose],
                labels=classes, autopct='%1.2f%%', startangle=90, colors=cores)
 
