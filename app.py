@@ -91,7 +91,7 @@ if uploaded_file is not None:
             model = pickle.load(f)
 
         # Pré-tratamento (Savitzky-Golay + Normalização)
-        dados_intervalo = dados.loc[1500:900]
+        dados_intervalo = dados.loc[1475:1000]
         
         dados_filtrados = pd.DataFrame(savgol_filter(dados_intervalo, 27, 1, axis = 0))
         dados_filtrados.index = dados_intervalo.index
