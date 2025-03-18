@@ -107,23 +107,27 @@ if uploaded_file is not None:
         prob = model.predict_proba(X_pca)[0]
         
         # Definir as classes e probabilidades
-        classes = ['Brucelose', 'Controle']
+        classes = ['Brucelose', 'Controle', 'Tuberculose']
         probabilidade_bru = prob[0] * 100  # Probabilidade de Brucelose
         probabilidade_controle = prob[1] * 100       # Probabilidade de Controle
+        probabilidade_tuberculose = prob[2] * 100  # Probabilidade de Tuberculose
 
         # Definir cores dinamicamente
-        if probabilidade_bru > probabilidade_controle:
-            cores = ['red', 'gray']  # Vermelho para Brucelose, Cinza para Controle
+        if probabilidade_bru > max(probabilidade_controle, probabilidade_tuberculose):
+            cores = ['red', 'gray', 'gray']  # Vermelho para Brucelose, Cinza para Controle e Tuberculose
+        elif probabilidade_controle > max(probabilidade_bru, probabilidade_tuberculose):
+            cores = ['gray', 'green', 'gray']  # Verde para Controle, Cinza para Brucelose e Tuberculose
         else:
-            cores = ['gray', 'green']  # Cinza para Brucelose, Verde para Controle
+            cores = ['gray', 'gray', 'blue']  # Azul para Tuberculose, Cinza para Brucelose e Controle
     
         # Exibir gráfico de pizza com as probabilidades
         fig, ax = plt.subplots(figsize=(3, 3))
-        ax.pie([probabilidade_bru, probabilidade_controle], labels=classes, autopct='%1.2f%%', startangle=90, colors=cores)
+        ax.pie([probabilidade_bru, probabilidade_controle, probabilidade_tuberculose],
+               labels=classes, autopct='%1.2f%%', startangle=90, colors=cores)
         ax.set_title('Probabilidades de Diagnóstico', fontsize=10)
         st.pyplot(fig)
 
 else:
-    st.markdown('''<h1 style="color: orange; font-size: 30px;">Diagnóstico de Brucelose  e Tuberculose Bovina</h1>''', unsafe_allow_html=True)
+    st.markdown('''<h1 style="color: orange; font-size: 30px;">Diagnóstico de Brucelose, Controle e Tuberculose Bovina</h1>''', unsafe_allow_html=True)
     # Subtítulo (h3)
     st.markdown('''<h3 style="color: plum; font-size: 20px;">Carregue um espectro FTIR para análise</h3>''', unsafe_allow_html=True)
